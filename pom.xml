@@ -12,30 +12,34 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <appium.version>9.3.0</appium.version>
-        <junit.version>5.10.2</junit.version>
-        <surefire.version>3.2.5</surefire.version>
     </properties>
 
     <dependencies>
-        <!-- Appium Java Client -->
+        <!-- Appium Java Client 8.x - compatível com Selenium 4 -->
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>${appium.version}</version>
+            <version>8.6.0</version>
+        </dependency>
+
+        <!-- Selenium 4 -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.18.1</version>
         </dependency>
 
         <!-- JUnit 5 -->
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
+            <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
+            <version>5.10.2</version>
             <scope>test</scope>
         </dependency>
 
@@ -45,13 +49,6 @@
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.12</version>
         </dependency>
-
-        <!-- Selenium - necessário para compatibilidade com Appium 9.x -->
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>4.21.0</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -59,15 +56,12 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire.version}</version>
+                <version>3.2.5</version>
                 <configuration>
-                    <!-- Testes mobile não rodam no CI sem emulador -->
-                    <!-- Para rodar localmente: mvn test -Dlocal=true -->
                     <skipTests>${skipTests}</skipTests>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 
 </project>
