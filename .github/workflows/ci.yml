@@ -1,0 +1,47 @@
+name: Build & Validate - Appium ApiDemos
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+permissions:
+  contents: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build:
+    name: Compilar e Validar Projeto
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v4.2.2
+
+      - name: Configurar Java 17
+        uses: actions/setup-java@v4.7.0
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Compilar projeto
+        run: mvn compile -q
+
+      - name: Validar dependências e estrutura
+        run: mvn validate -q
+
+      - name: Verificar código com Maven
+        run: mvn test-compile -DskipTests=true -q
+
+      - name: Gerar relatório de dependências
+        run: mvn dependency:tree > dependency-report.txt
+
+      - name: Upload do relatório de dependências
+        uses: actions/upload-artifact@v4.6.2
+        with:
+          name: dependency-report
+          path: dependency-report.txt
