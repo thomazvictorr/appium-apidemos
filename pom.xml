@@ -45,6 +45,13 @@
             <artifactId>slf4j-simple</artifactId>
             <version>2.0.12</version>
         </dependency>
+
+        <!-- Selenium - necessário para compatibilidade com Appium 9.x -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.21.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -61,5 +68,6 @@
             </plugin>
         </plugins>
     </build>
+
 
 </project>
