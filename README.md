@@ -18,6 +18,7 @@ Projeto de automação de testes mobile com **Appium + Java**, utilizando o app 
 | CT-006 | Validar itens principais na tela inicial |
 
 **Total: 6 casos de teste** com JUnit 5 e Page Object base
+
 📄 **[Ver página do projeto](https://thomazvictorr.github.io/appium-apidemos/)**
 
 ---
