@@ -67,6 +67,10 @@ mvn test
 
 ---
 
+📄 **[Ver página do projeto](https://thomazvictorr.github.io/appium-apidemos/)**
+
+---
+
 ## ⚙️ CI/CD com GitHub Actions
 
 O pipeline roda automaticamente a cada **push** ou **pull request** na branch `main`.
