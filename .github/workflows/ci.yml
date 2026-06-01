@@ -5,6 +5,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: '0 11 * * 1-5'  # 8h horário de Brasília (UTC-3)
 
 permissions:
   contents: write
